@@ -1,0 +1,26 @@
+server:
+  port: 9001       #配置端口号
+
+spring:
+  application:
+    name: springcloud-zuul-gateway     #在eureka中暴露服务的名称
+
+eureka:                                #注册服务进eureka
+  client:
+    service-url:
+      defaultZone: http://localhost:7001/eureka
+  instance:
+    instance-id: gateway-9001
+    prefer-ip-address: true
+
+info:
+  app.name: myspringcloud-zuul
+  company.name: www.gogen.com.cn
+  build.artifactId: $project.artifactId$
+  build.version: $project.version$
+zuul:
+  prefix: /gogen
+  ignored-services: myspringcloud-dept
+  routes:
+      mydept.serviceId: myspringcloud-dept
+      mydept.path: /mydept/**
