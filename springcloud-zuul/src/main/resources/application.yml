@@ -1,5 +1,5 @@
 server:
-  port: 9003      #配置端口号
+  port: 9002      #配置端口号
 
 spring:
   application:
